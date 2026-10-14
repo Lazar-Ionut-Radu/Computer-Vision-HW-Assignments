@@ -162,7 +162,7 @@ def generalized_boundaries(layers, radius, epsilon=1.0, sigma=None):
     # Jx and Jy store the two filter responses for each layer.
     jx = np.empty((height, width, n_layers), dtype=np.float64)
     jy = np.empty_like(jx)
-
+    
     for k in range(n_layers):
         jx[..., k] = convolve2d(layers[..., k], hx, mode="same", boundary="fill")
         jy[..., k] = convolve2d(layers[..., k], hy, mode="same", boundary="fill")
